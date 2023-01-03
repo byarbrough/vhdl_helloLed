@@ -14,6 +14,7 @@ entity helloLed is
   port(
     -- inputs
     i_sw0 : in std_logic; -- the rightmost switch
+
     -- outputs
     o_ld0 : out std_logic -- the rightmost LED
     );
