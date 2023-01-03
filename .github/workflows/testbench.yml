@@ -5,7 +5,11 @@ jobs:
   Execute-Testbench:
     runs-on: ubuntu-latest
     steps:
-      - uses: ghdl/setup-ghdl-ci@nightly
-        with:
-          backend: llvm
+      - name: Setup GHDL nightly
+        uses: ghdl/setup-ghdl-ci@nightly
       - run: ghdl --version
+      - name: Execute the VHDL testbench
+        run: |
+          ghdl -a src/hdl/*
+          run: ghdl -e src/hdl/*_tb
+          run: ghdl -r src/hdl/*_tb
