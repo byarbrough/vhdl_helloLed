@@ -20,10 +20,10 @@ architecture test_bench of helloLed_tb is
     port(
 	   i_sw0 : in std_logic;
 	   o_ld0 : out std_logic
-    );	
+    );
     end component;
-    
-    -- signals are 
+
+    -- signals are
     signal w_sw0 : std_logic := '0';
     signal w_ld0 : std_logic := '0';
 
@@ -36,23 +36,23 @@ begin
         );
 	-----------------------------------------------------
 
-	-- PROCESSES ----------------------------------------	
+	-- PROCESSES ----------------------------------------
 	-- Test Plan Process --------------------------------
-	-- Implement the test plan here.  Body of process is continuous from time = 0  
-	test_process : process 
+	-- Implement the test plan here.  Body of process is continuous from time = 0
+	test_process : process
         begin
             -- Set the switch to ON and wait for 1 ns
         w_sw0 <= '1';
         wait for 1 ns;
         -- Check that the LED is ON
         assert w_ld0 = '1' report "LED should be ON when switch is ON" severity failure;
-    
+
         -- Set the switch to OFF and wait for 1 ns
         w_sw0 <= '0';
         wait for 1 ns;
         -- Check that the LED is OFF
         assert w_ld0 = '0' report "LED should be OFF when switch is OFF" severity failure;
-    
+
         -- Set the switch to ON again and wait for 1 ns
         w_sw0 <= '1';
         wait for 1 ns;
@@ -60,7 +60,7 @@ begin
         assert w_ld0 = '1' report "LED should be ON when switch is ON" severity failure;
 
         wait; -- wait forever
-	end process;	
-	-----------------------------------------------------	
+	end process;
+	-----------------------------------------------------
 
 end test_bench;

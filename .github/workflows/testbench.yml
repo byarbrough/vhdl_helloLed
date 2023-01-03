@@ -1,0 +1,20 @@
+---
+env:
+  PROJECT_TB_ENTITY_NAME: helloled_tb
+
+name: GHDL Testbench
+on: [push]
+jobs:
+  Execute-Testbench:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup GHDL nightly
+        uses: ghdl/setup-ghdl-ci@nightly
+      - run: ghdl --version
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Execute the VHDL testbench
+        run: |
+          ghdl -a src/hdl/*.vhd
+          ghdl -e $PROJECT_TB_ENTITY_NAME
+          ghdl -r $PROJECT_TB_ENTITY_NAME
