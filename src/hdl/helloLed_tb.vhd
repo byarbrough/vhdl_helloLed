@@ -45,19 +45,19 @@ begin
         w_sw0 <= '1';
         wait for 1 ns;
         -- Check that the LED is ON
-        assert w_ld0 = '1' report "LED should be ON when switch is ON" severity error;
+        assert w_ld0 = '1' report "LED should be ON when switch is ON" severity failure;
     
         -- Set the switch to OFF and wait for 1 ns
         w_sw0 <= '0';
         wait for 1 ns;
         -- Check that the LED is OFF
-        assert w_ld0 = '0' report "LED should be OFF when switch is OFF" severity error;
+        assert w_ld0 = '0' report "LED should be OFF when switch is OFF" severity failure;
     
         -- Set the switch to ON again and wait for 1 ns
         w_sw0 <= '1';
         wait for 1 ns;
         -- Check that the LED is ON
-        assert w_ld0 = '1' report "LED should be ON when switch is ON" severity error;
+        assert w_ld0 = '1' report "LED should be ON when switch is ON" severity failure;
 
         wait; -- wait forever
 	end process;	
