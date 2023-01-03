@@ -1,6 +1,6 @@
 ---
 env:
-  PROJECT_TB_NAME: helloled_tb
+  PROJECT_TB_ENTITY_NAME: helloled_tb
 
 name: GHDL Testbench
 on: [push]

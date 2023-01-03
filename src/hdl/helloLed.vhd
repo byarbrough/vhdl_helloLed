@@ -14,7 +14,6 @@ entity helloLed is
   port(
     -- inputs
     i_sw0 : in std_logic; -- the rightmost switch
-  
     -- outputs
     o_ld0 : out std_logic -- the rightmost LED
     );
@@ -25,6 +24,6 @@ architecture Behavioral of helloLed is
 begin
 
     -- directly map the led to the switch
-	o_ld0 <= i_sw0;	
+	o_ld0 <= i_sw0;
 
 end Behavioral;
