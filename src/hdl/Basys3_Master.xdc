@@ -1,8 +1,5 @@
-## This file is a general .xdc for the Basys3 rev B board
-## To use it in a project:
-## - uncomment the lines corresponding to used pins
-## - rename the used ports (in each line, after get_ports) according to the top level signal names in the project
-
+## This file is a minimal .xdc for the Basys3 rev B board
+## It is setup for the helloLed demo
  
 ## Switches
 set_property PACKAGE_PIN V17 [get_ports {i_sw0}]					

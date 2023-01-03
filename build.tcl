@@ -100,8 +100,8 @@ if { $::argc > 0 } {
 # Set the directory path for the original project from where this script was exported
 set orig_proj_dir "[file normalize "$origin_dir/"]"
 
-# Create project
-create_project ${_xil_proj_name_} ./${_xil_proj_name_} -part xc7a35tcpg236-1
+# Create project - modified to have root and source match
+create_project ${_xil_proj_name_} ${origin_dir}
 
 # Set the directory path for the new project
 set proj_dir [get_property directory [current_project]]
