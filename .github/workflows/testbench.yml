@@ -1,0 +1,10 @@
+---
+name: GHDL Testbench
+on: [push]
+jobs:
+  Execute-Testbench:
+  stpes:
+    - uses: ghdl/setup-ghdl-ci@nightly
+      with:
+        backend: llvm
+    - run: ghdl --version
