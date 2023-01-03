@@ -16,5 +16,5 @@ jobs:
       - name: Execute the VHDL testbench
         run: |
           ghdl -a src/hdl/*.vhd
-          ghdl -e $PROJECT_TB_NAME
-          ghdl -r $PROJECT_TB_NAME
+          ghdl -e $PROJECT_TB_ENTITY_NAME
+          ghdl -r $PROJECT_TB_ENTITY_NAME
