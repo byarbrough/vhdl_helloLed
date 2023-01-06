@@ -37,9 +37,7 @@ to run a *nightly* build of [GHDL](https://ghdl.github.io/ghdl/).
 
 First, the workflow uses GHDL to **analyze** all `.vhd` files in `src/hdl/`.
 
-Then it **elaborates** the `helloled_tb` testbench.
-For this to work, the environment variable `PROJECT_TB_ENTITY_NAME` *must* match the
-entity name defined in the testbench VHDL file (case insensitive).
+Then it **elaborates** the *any* entity with the name `*_tb`. In this case, that is `helloled_tb`.
 
 Finally, the workflow **runs** the simulation. If successful then it will quietly exit with a `0` code.
 If any of the `assert` statements fail **with** `severity failure` then GHDL will cease the simulation and exit with non-zero code; this will also cause the workflow to fail.
