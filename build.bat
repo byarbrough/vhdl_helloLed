@@ -35,3 +35,5 @@ for /f %%i in ('dir /b *.xpr') do set xpr=%%i & goto DONE
 
 echo Project built. Can be opened by double-clicking %xpr%
 echo (hint) run "explorer.exe ." to see files.
+
+PAUSE
