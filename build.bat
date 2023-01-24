@@ -20,20 +20,7 @@ if not exist %TCL% (
 :: run vivado in batch mode to build project
 %VivadoPath% -mode batch -source %TCL%
 
-:: check if vivado exited with error
-if errorlevel 1 (
-    echo Vivado exited with error
-    exit /b 1
-)
-
 echo ----------------------------------------
 
-:: find the name of the .xpr file
-for /f %%i in ('dir /b *.xpr') do set xpr=%%i & goto DONE
-
-:DONE
-
-echo Project built. Can be opened by double-clicking %xpr%
-echo (hint) run "explorer.exe ." to see files.
-
+:: wait for a keypress
 PAUSE
