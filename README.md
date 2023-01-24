@@ -6,15 +6,11 @@ Targeted toward Digilent Basys3. Make sure to install the [board files](https://
 
 Tested on Windows 10.
 
-## Usage
+## Build this project
 
 Clone and cd into the directory.
 
 Build the project using the handy `.bat` file.
-
-```powershell
-./build.bat
-```
 
 You should see a new `helloLed.xpr` file. Open it with Vivado!
 
@@ -29,6 +25,40 @@ You should see a new `helloLed.xpr` file. Open it with Vivado!
 7. On the board `SW0` should now control `LD0`!
 
 Thanks to [fpgadeveloper post](https://www.fpgadeveloper.com/2014/08/version-control-for-vivado-projects.html/)!
+
+## Use this template
+
+You can use this template to create other version controlled Vivado projects.
+
+In order to do this, you need to replace the source files with the ones you want and then regenerate the `build.tcl` file.
+
+1. Clone a clean copy of helloLed, where you *have not* run the `build.bat` script.
+2. Change the name of the helloLed folder to what you want your project to be called
+3. Delete the files in `src/hdl` that you don't want.
+4. Open Vivado and select **Create New Project**
+5. Create the proect, selecting this directory. Uncheck the option to create a new directory.
+6. Add the files you do want to `src/hdl`
+
+In Vivado, **File > Project > Write Tcl...**
+- **Output File** select `build.tcl`
+- **Uncheck** "Copy sources to new project"!
+- OK
+
+Then, open the `build.tcl` in a program that shows `git diff`, such as vs code or git GUI.
+Look at the differences and change some stuff back to the original... specifically:
+
+Make sure you use `$origin_dir` rather than you specific path.
+This is important for keeping files where Git knows about them.
+
+```tcl
+# Set the directory path for the original project from where this script was exported
+set orig_proj_dir "[file normalize "$origin_dir/"]"
+
+# Create project - modified to have root and source match
+create_project ${_xil_proj_name_} ${origin_dir}
+```
+
+Also, change the absolute path to relative in the comments starting at line 26
 
 ## GitHub Actions Testbench
 

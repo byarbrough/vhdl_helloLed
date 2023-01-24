@@ -18,7 +18,7 @@ if not exist %TCL% (
 )
 
 :: run vivado in batch mode to build project
-%VivadoPath% -mode batch -source %TCL%
+call %VivadoPath% -mode batch -source %TCL%
 
 echo ----------------------------------------
 
