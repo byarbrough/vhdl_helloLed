@@ -5,6 +5,9 @@
 # never ignore itself
 !.gitignore
 
+# Don't ignore .xpr... even though this is bad practice
+!*.xpr
+
 # don't ignore hardware description files
 !src/
 !src/**/
